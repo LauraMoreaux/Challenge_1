@@ -12,41 +12,98 @@ code {
     monospace;
 }
 
-.App {
+.app {
   text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .app__header__name {
+    margin-top: 100px;
+    margin-bottom: 50px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.wrapper {
+  max-width: 280px;
+  min-height: 280px;
+  margin: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  justify-content: space-evenly;
 
-.App-link {
-  color: #61dafb;
-}
+  .filters__list {
+    height: 25px;
+    color: $filtersColor;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-around;
+    border-bottom: solid 1px $bordersColor;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+    .li__underlined {
+      border-bottom: solid 4px $btnColor;
+    }
   }
-  to {
-    transform: rotate(360deg);
+}
+
+.inputBox__form {
+  display: flex;
+  justify-content: space-evenly;
+
+  .inputBox__form__box {
+    border: 1px solid $bordersColor;
+    width: 70%;
+    height: 38px;
+    box-sizing: border-box;
+    border-radius: 12px;
+  }
+
+  .inputBox__form__btn {
+    background-color: $btnColor;
+    min-width: 25%;
+    height: 38px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    font-size: 14px;
+    color: $colorLight;
+  }
+}
+
+.taskList {
+  font-size: 16px;
+  font-weight: 500;
+  text-align: left;
+}
+
+.task__fa {
+  color: $bordersColor;
+  position: absolute;
+  right: 95px;
+  @include tablet {
+    right: 230px;
+  }
+}
+
+.box__delete__btn {
+  margin-top: 50px;
+  display: inline-block;
+
+  .delete__btn {
+    width: 100px;
+    height: 40px;
+    background-color: $deleteColor;
+    color: $colorLight;
+    border-radius: 4px;
+    position: absolute;
+    right: 95px;
+    font-size: 12px;
+    @include tablet {
+      right: 230px;
+    }
+    @include desktop {
+      right: 800px;
+    }
+  }
+
+  .delete__task {
+    padding: 0px 10px 0px 0px;
   }
 }
