@@ -22,12 +22,23 @@ code {
 }
 
 .wrapper {
-  max-width: 280px;
+  padding: 0px 20px 0px 20px;
+  max-width: 350px;
   min-height: 280px;
   margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+
+  @media (min-width: $tablet) {
+    max-width: 580px;
+  }
+  @media (min-width: $desktop) {
+    max-width: 700px;
+  }
+  @media (min-width: $desktop-sup) {
+    max-width: 1250px;
+  }
 
   .filters__list {
     height: 25px;
@@ -54,6 +65,9 @@ code {
     height: 38px;
     box-sizing: border-box;
     border-radius: 12px;
+    @media (min-width: $desktop) {
+      max-width: 300px;
+    }
   }
 
   .inputBox__form__btn {
@@ -64,6 +78,10 @@ code {
     border-radius: 12px;
     font-size: 14px;
     color: $colorLight;
+    @media (min-width: $desktop) {
+      min-width: 100px;
+      max-width: 150px;
+    }
   }
 }
 
@@ -71,15 +89,26 @@ code {
   font-size: 16px;
   font-weight: 500;
   text-align: left;
+
+  .taskList__li {
+    padding: 15px;
+  }
 }
 
 .task__fa {
   color: $bordersColor;
   position: absolute;
-  right: 95px;
-  @include tablet {
-    right: 230px;
+  right: 35px;
+  padding: 0px;
+  @media (min-width: $tablet) {
+    right: 150px;
   }
+  @media (min-width: $desktop) {
+    right: 300px;
+  }
+  // @media (min-width: $desktop-sup) {
+  //   right: 500px;
+  // }
 }
 
 .box__delete__btn {
@@ -93,14 +122,17 @@ code {
     color: $colorLight;
     border-radius: 4px;
     position: absolute;
-    right: 95px;
+    right: 75px;
     font-size: 12px;
-    @include tablet {
-      right: 230px;
+    @media (min-width: $tablet) {
+      right: 220px;
     }
-    @include desktop {
-      right: 800px;
+    @media (min-width: $desktop) {
+      right: 300px;
     }
+    // @media (min-width: $desktop-sup) {
+    //   right: 500px;
+    // }
   }
 
   .delete__task {

@@ -25,9 +25,9 @@ function App() {
             </div>
             <main>
               <ul className="taskList">
-                <li> <input type="checkbox" /> <span>Primera tarea</span>
+                <li className="taskList__li"> <input type="checkbox" /> <span>Mi primera tarea es super larga y no sé si va a caber</span>
                 <i className="fa task__fa fa-trash"></i></li>
-                <li> <input type="checkbox" /> <span>Segunda tarea</span>
+                <li className="taskList__li"> <input type="checkbox" /> <span>Segunda tarea</span>
                 <i className="fa task__fa fa-trash"></i></li>
               </ul>
               <span className="box__delete__btn">
