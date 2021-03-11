@@ -40,17 +40,21 @@ code {
     max-width: 1250px;
   }
 
-  .filters__list {
-    height: 25px;
-    color: $filtersColor;
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    justify-content: space-around;
-    border-bottom: solid 1px $bordersColor;
+  .filters {
+    margin-bottom: 15px;
 
-    .li__underlined {
-      border-bottom: solid 4px $btnColor;
+    .filters__list {
+      height: 25px;
+      color: $filtersColor;
+      display: flex;
+      flex-direction: row;
+      text-align: center;
+      justify-content: space-around;
+      border-bottom: solid 1px $bordersColor;
+  
+      .li__underlined {
+        border-bottom: solid 4px $btnColor;
+      }
     }
   }
 }
