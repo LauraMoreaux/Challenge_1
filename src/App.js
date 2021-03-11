@@ -1,15 +1,23 @@
+import React, { useState, useEffect } from 'react';
 import '../src/stylesheets/_index.scss';
 import ListTasks from './components/ListTasks';
 import DeleteTasks from './components/DeleteButton';
 
 function App() {
 
-  const data = [
+  const [data, updateTasks] = useState([
     { id: 'task-1', name: "Mi primera tarea es muy larga y no sé si va a caber", completed: true },
     { id: 'task-2', name: "Segunda Tarea", completed: false },
     { id: 'task-3', name: "Tercera Tarea", completed: false },
     { id: 'task-4', name: "Y otra más", completed: false },
-  ];
+  ])
+
+
+  
+  function resetAll() {
+    console.log('He clickado el botón');
+    updateTasks([]);
+  }
 
   return (
     <div className="app">
@@ -35,7 +43,7 @@ function App() {
             </div>
             <main>
                 <ListTasks tasks={data}/>
-                <DeleteTasks />
+                <DeleteTasks resetAll={resetAll}/>
             </main>
           </div>
       </body>
