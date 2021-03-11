@@ -1,6 +1,15 @@
 import '../src/stylesheets/_index.scss';
+import ListTasks from './components/ListTasks';
 
 function App() {
+
+  const data = [
+    { id: 'task-1', name: "Mi primera tarea es muy larga y no sé si va a caber", completed: true },
+    { id: 'task-2', name: "Segunda Tarea", completed: false },
+    { id: 'task-3', name: "Tercera Tarea", completed: false },
+    { id: 'task-4', name: "Y otra más", completed: false },
+  ];
+
   return (
     <div className="app">
       <header className="app__header">
@@ -11,25 +20,20 @@ function App() {
             <nav className="filters">
               <ul className="filters__list">
                 <li className="li__underlined">All</li>
-                <li>Active</li>
-                <li>Completed</li>
+                <li className="">Active</li>
+                <li className="">Completed</li>
               </ul>
             </nav>
             <div className="inputBox">
               <form className="inputBox__form"> 
-                {/* <label className="inputBox__form__title"> */}
+                <label className="inputBox__form__title">
                 <input className="inputBox__form__box" type="text" name="Add other task" />
-                {/* </label> */}
+                </label>
                 <button className="inputBox__form__btn"type="submit">Add</button>
               </form>
             </div>
             <main>
-              <ul className="taskList">
-                <li className="taskList__li"> <input type="checkbox" /> <span>Mi primera tarea es super larga y no sé si va a caber</span>
-                <i className="fa task__fa fa-trash"></i></li>
-                <li className="taskList__li"> <input type="checkbox" /> <span>Segunda tarea</span>
-                <i className="fa task__fa fa-trash"></i></li>
-              </ul>
+                <ListTasks tasks={data}/>
               <span className="box__delete__btn">
                 <button className="delete__btn" type="submit"> <i className="fa delete__task fa-trash"></i>delete all</button>
               </span>
