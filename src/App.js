@@ -1,5 +1,6 @@
 import '../src/stylesheets/_index.scss';
 import ListTasks from './components/ListTasks';
+import DeleteTasks from './components/DeleteButton';
 
 function App() {
 
@@ -34,9 +35,7 @@ function App() {
             </div>
             <main>
                 <ListTasks tasks={data}/>
-              <span className="box__delete__btn">
-                <button className="delete__btn" type="submit"> <i className="fa delete__task fa-trash"></i>delete all</button>
-              </span>
+                <DeleteTasks />
             </main>
           </div>
       </body>
