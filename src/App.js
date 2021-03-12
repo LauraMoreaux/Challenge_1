@@ -2,19 +2,35 @@ import React, { useState, useEffect } from 'react';
 import '../src/stylesheets/_index.scss';
 import ListTasks from './components/ListTasks';
 import DeleteTasks from './components/DeleteButton';
+import InputFilters from './components/InputFilters';
 
 function App() {
 
   const [data, updateTasks] = useState([
-    { id: 'task-1', name: "Mi primera tarea es muy larga y no sé si va a caber", completed: true },
-    { id: 'task-2', name: "Segunda Tarea", completed: false },
-    { id: 'task-3', name: "Tercera Tarea", completed: false },
-    { id: 'task-4', name: "Y otra más", completed: false },
+    { id: 1, name: "Mi primera tarea es muy larga y no sé si va a caber", completed: true },
+    { id: 2, name: "Segunda Tarea", completed: false },
+    { id: 3, name: "Tercera Tarea", completed: false },
+    { id: 4, name: "Y otra más", completed: false },
   ])
 
-
+  const addNewTask = (newData) => {
+    console.log('Estoy intentando añadir otra', newData);
+    const newTask = {id: data.length + 1,
+                    name: newData,
+                    completed: false};
+    updateList(newTask)
+  }
   
-  function resetAll() {
+
+  const updateList = (newTask) =>{
+    // updateTasks({
+    // data: [...data, newTask]
+    // });
+    console.log(newTask);
+    console.log(data);
+  }
+  
+  const resetAll = () => {
     console.log('He clickado el botón');
     updateTasks([]);
   }
@@ -33,14 +49,7 @@ function App() {
                 <li className="">Completed</li>
               </ul>
             </nav>
-            <div className="inputBox">
-              <form className="inputBox__form"> 
-                <label className="inputBox__form__title">
-                <input className="inputBox__form__box" type="text" name="Add other task" />
-                </label>
-                <button className="inputBox__form__btn"type="submit">Add</button>
-              </form>
-            </div>
+            <InputFilters addNewTask={addNewTask}/>
             <main>
                 <ListTasks tasks={data}/>
                 <DeleteTasks resetAll={resetAll}/>
@@ -49,6 +58,6 @@ function App() {
       </body>
     </div>
   );
-}
+          }
 
 export default App;
