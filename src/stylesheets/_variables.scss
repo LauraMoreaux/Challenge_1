@@ -7,11 +7,9 @@ $btnColor: #2f80ed;
 $deleteColor: #eb5757;
 
 /* FONTS */
-// @font-face {
-//   font-family: myFont;
-//   src: url(../fonts/get_schwifty.ttf);
-// }
-$fontPrimary: "Ubuntu", sans-serif;
+$fontPrimary: "Segoe UI", "Roboto", "Oxygen",
+"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+sans-serif;
 $defaultFontSize: 16px;
 
 /* BREAKPOINTS */

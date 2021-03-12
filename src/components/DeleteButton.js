@@ -6,7 +6,10 @@ function DeleteTasks (props) {
 
     return (
         <span className="box__delete__btn" >
-        <button className="delete__btn" type="submit" onClick={props.resetAll} value="delete all"> <i className="fa delete__task fa-trash">delete all</i></button>
+            <button className="delete__btn" type="submit" onClick={props.resetAll} value="delete all">
+                delete all                  
+            <i className="fa delete__task fa-trash">                  </i>                    
+            </button>
       </span>
     )
 }
