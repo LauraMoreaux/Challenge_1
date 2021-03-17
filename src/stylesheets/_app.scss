@@ -42,25 +42,27 @@ body {
     max-width: 1250px;
   }
 
-  .filters {
-    margin-bottom: 15px;
-
-    .filters__list {
-      margin-bottom: 15px;
-      height: 25px;
-      color: $filtersColor;
-      display: flex;
-      flex-direction: row;
-      text-align: center;
-      justify-content: space-around;
-      border-bottom: solid 1px $bordersColor;
   
-      .underlined {
-        border-bottom: solid 4px $btnColor;
-      }
-      .radioButton {
-        display: none;
-      }
+  .filters__list {
+    margin-bottom: 15px;
+    height: 25px;
+    color: $filtersColor;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-around;
+    border-bottom: solid 1px $bordersColor;
+
+    .btn {
+      background-color: white;
+      border: white;
+    }
+
+    .underlined {
+      border-bottom: solid 4px $btnColor;
+    }
+    .radioButton {
+      display: none;
     }
   }
 }
