@@ -3,6 +3,7 @@ import '../src/stylesheets/_index.scss';
 import ListTasks from './components/ListTasks';
 import DeleteTasks from './components/DeleteButton';
 import InputFilters from './components/InputFilters';
+import StateFilters from './components/StateFilters';
 
 function App() {
 
@@ -13,6 +14,10 @@ function App() {
     { id: 3, name: "Tercera Tarea", completed: false },
     { id: 4, name: "Y otra más", completed: false },
   ])
+
+  const showFilteredTasks = (filter) => {
+    console.log('Estoy filtrando tareas', filter);
+  }
 
   // To add new task
   const addNewTask = (newData) => {
@@ -43,13 +48,14 @@ function App() {
       </header>
         <body>
           <div className="wrapper">
-            <nav className="filters">
+            <StateFilters showFilteredTasks={showFilteredTasks}/>
+            {/* <nav className="filters">
               <ul className="filters__list">
                 <li className="li__underlined">All</li>
                 <li className="">Active</li>
                 <li className="">Completed</li>
               </ul>
-            </nav>
+            </nav> */}
             <InputFilters addNewTask={addNewTask}/>
             <main>
                 <ListTasks tasks={data}/>

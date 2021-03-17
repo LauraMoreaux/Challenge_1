@@ -46,6 +46,7 @@ body {
     margin-bottom: 15px;
 
     .filters__list {
+      margin-bottom: 15px;
       height: 25px;
       color: $filtersColor;
       display: flex;
@@ -54,9 +55,12 @@ body {
       justify-content: space-around;
       border-bottom: solid 1px $bordersColor;
   
-      .li__underlined {
+      .underlined {
         border-bottom: solid 4px $btnColor;
       }
+      // .radioButton {
+      //   display: none;
+      // }
     }
   }
 }
