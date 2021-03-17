@@ -19,10 +19,10 @@ function App() {
 
   //State
   const [data, updateTasks] = useState([
-    { id: 1, name: "Mi primera tarea es muy larga y no sé si va a caber", completed: false },
-    { id: 2, name: "Segunda Tarea", completed: false },
-    { id: 3, name: "Tercera Tarea", completed: false },
-    { id: 4, name: "Y otra más", completed: false },
+    { id: 1, name: "Mi primera tarea es muy larga y no sé si va a caber", checked: true },
+    { id: 2, name: "Segunda Tarea", checked: false },
+    { id: 3, name: "Tercera Tarea", checked: true },
+    { id: 4, name: "Y otra más", checked: false },
   ])
 
   const [filter, setFilter] = useState('All');
@@ -34,7 +34,7 @@ function App() {
       <ListTasks
         id={task.id}
         name={task.name}
-        completed={task.completed}
+        completed={task.checked}
         key={task.id}
       />
     ));
@@ -54,13 +54,17 @@ function App() {
     console.log('Estoy intentando añadir otra', newData);
     const newTask = {id: data.length + 1,
                     name: newData,
-                    completed: false};
+                    checked: false};
     updateList(newTask)
   }
 
   // To update state and re render
-  const updateList = (newTask) =>{
+  const updateList = (newTask) => {
     updateTasks(data => [...data, newTask]);
+  }
+
+  const updateState = (id) => {
+    console.log("Voy a modificar el estado a de este", id);
   }
   
   // To erase all tasks
@@ -83,7 +87,7 @@ function App() {
             </nav>
             <InputFilters addNewTask={addNewTask}/>
             <main>
-                <ListTasks tasks={taskList}/>
+                <ListTasks tasks={taskList} updateState={updateState}/>
                 <DeleteTasks resetAll={resetAll}/>
             </main>
           </div>
