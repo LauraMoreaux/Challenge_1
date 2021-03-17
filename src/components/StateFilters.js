@@ -25,7 +25,7 @@ function StateFilters (props) {
         <div className="filters">
             <nav className="filters__list">
                 <label htmlFor="All" className="js-filter">
-                    <input id="All" type="radio" value="All" name="State" className="radioButton underlined" onClick={handleFilter} defaultChecked />
+                    <input id="All" type="radio" value="All" name="State" className="radioButton underlined" onClick={handleFilter} />
                     All
                 </label>
                 <label htmlFor="Active" className="js-filter">

@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, setFilter } from 'react';
 import '../src/stylesheets/_index.scss';
 import ListTasks from './components/ListTasks';
 import DeleteTasks from './components/DeleteButton';
 import InputFilters from './components/InputFilters';
 import StateFilters from './components/StateFilters';
+import FilterButton from './components/FilterButton';
+
+
+  
 
 function App() {
 
@@ -15,17 +19,53 @@ function App() {
     { id: 4, name: "Y otra más", completed: false },
   ])
 
+  const [filter, setFilter] = useState('All');
+
+  const FILTER_MAP = {
+    All: () => true,
+    Active: task => !task.completed,
+    Completed: task => task.completed
+  };
+
+  const FILTER_NAMES = Object.keys(FILTER_MAP);
+
+  const filterList = FILTER_NAMES.map(name => (
+    <FilterButton
+      key={name}
+      name={name}
+      isPressed={name === filter}
+      setFilter={setFilter}
+    />
+  ));
+
+  const taskList = data
+    .filter(FILTER_MAP[filter])
+    .map(task => (
+      <ListTasks
+        id={task.id}
+        name={task.name}
+        completed={task.completed}
+        key={task.id}
+        // toggleTaskCompleted={toggleTaskCompleted}
+        // deleteTask={deleteTask}
+        // editTask={editTask}
+      />
+    ));
+  
+    console.log(taskList);
+  
+
   const showFilteredTasks = (status) => {
     console.log('Estoy filtrando tareas', status);
-    if (status === "Completed") {
-      console.log('Voy a mostrar solo las completed');
-      data.filter(i => i.completed = true);
+  //   if (status === "Completed") {
+  //     console.log('Voy a mostrar solo las completed');
+  //     data.filter(i => i.completed = true);
      
-    } else if (status === "Active") {
-      console.log('Voy a mostrar solo las active');
-      data.filter(i => i.completed = false);
-    }
-    console.log(data);
+  //   } else if (status === "Active") {
+  //     console.log('Voy a mostrar solo las active');
+  //     data.map(i => i.completed = false);
+  //   }
+  //   console.log(data);
   }
 
   // To add new task
@@ -58,6 +98,7 @@ function App() {
         <body>
           <div className="wrapper">
             <StateFilters showFilteredTasks={showFilteredTasks}/>
+            {filterList}
             {/* <nav className="filters">
               <ul className="filters__list">
                 <li className="li__underlined">All</li>
@@ -67,7 +108,7 @@ function App() {
             </nav> */}
             <InputFilters addNewTask={addNewTask}/>
             <main>
-                <ListTasks tasks={data}/>
+                <ListTasks tasks={taskList}/>
                 <DeleteTasks resetAll={resetAll}/>
             </main>
           </div>
