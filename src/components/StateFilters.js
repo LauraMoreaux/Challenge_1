@@ -5,11 +5,13 @@ function StateFilters (props) {
 
     function handleFilter (ev) {
         // ev.preventDefault();
-        const filter = ev.currentTarget;
-        // filter.classList.toggle("underlined");
-        // props.showFilteredTasks(filter);
-        const parent = filter.parentElement;
-        parent.classList.toggle("underlined");
+        const status = ev.currentTarget.value;
+        console.log(status);
+        props.showFilteredTasks(status);
+
+        // const filter = ev.currentTarget;
+        // const parent = filter.parentElement;
+        // parent.classList.toggle("underlined");
     } 
 
     return (

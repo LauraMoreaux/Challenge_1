@@ -15,8 +15,17 @@ function App() {
     { id: 4, name: "Y otra más", completed: false },
   ])
 
-  const showFilteredTasks = (filter) => {
-    console.log('Estoy filtrando tareas', filter);
+  const showFilteredTasks = (status) => {
+    console.log('Estoy filtrando tareas', status);
+    if (status === "Completed") {
+      console.log('Voy a mostrar solo las completed');
+      data.filter(i => i.completed = true);
+     
+    } else if (status === "Active") {
+      console.log('Voy a mostrar solo las active');
+      data.filter(i => i.completed = false);
+    }
+    console.log(data);
   }
 
   // To add new task

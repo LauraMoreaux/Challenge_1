@@ -58,9 +58,9 @@ body {
       .underlined {
         border-bottom: solid 4px $btnColor;
       }
-      // .radioButton {
-      //   display: none;
-      // }
+      .radioButton {
+        display: none;
+      }
     }
   }
 }
