@@ -9,8 +9,8 @@ import StateFilters from './components/StateFilters';
 
 const FILTER_MAP = {
   All: () => true,
-  Active: data => !data.completed,
-  Completed: data => data.completed
+  Active: data => !data.checked,
+  Completed: data => data.checked
 };
 
 const FILTER_NAMES = Object.keys(FILTER_MAP);
@@ -28,8 +28,7 @@ function App() {
   const [filter, setFilter] = useState('All');
 
 
-  const taskList = data
-    .filter(FILTER_MAP[filter])
+  const taskList = data.filter(FILTER_MAP[filter])
     .map(task => (
       <ListTasks
         id={task.id}
@@ -37,17 +36,17 @@ function App() {
         completed={task.checked}
         key={task.id}
       />
-    ));
+  ));
 
-    const filterList = FILTER_NAMES.map(name => (
-      <StateFilters
-        key={name}
-        name={name}
-        isPressed={name === filter}
-        setFilter={setFilter}
-      />
-    ));
-  
+  const filterList = FILTER_NAMES.map(name => (
+    <StateFilters
+      key={name}
+      name={name}
+      isPressed={name === filter}
+      setFilter={setFilter}
+    />
+  ));
+
 
   // To add new task
   const addNewTask = (newData) => {
@@ -63,10 +62,25 @@ function App() {
     updateTasks(data => [...data, newTask]);
   }
 
-  const updateState = (id) => {
-    console.log("Voy a modificar el estado a de este", id);
+  // To update state with checkbox status
+  const handleStatus = (id) => {
+    console.log("voy a cambiar el estado a esta task", id);
+    const updatedStatus = data.map(task => {
+      if (task.id == id) {
+        console.log('He pasado por el if');
+          return {
+            ...task,
+            checked: !task.checked
+          };
+        }
+        return task;
+    })
+    updateTasks(updatedStatus);
   }
   
+     
+  console.log(data)
+
   // To erase all tasks
   const resetAll = () => {
     console.log('He clickado el botón');
@@ -87,7 +101,7 @@ function App() {
             </nav>
             <InputFilters addNewTask={addNewTask}/>
             <main>
-                <ListTasks tasks={taskList} updateState={updateState}/>
+                <ListTasks handleStatus={handleStatus} tasks={taskList}/>
                 <DeleteTasks resetAll={resetAll}/>
             </main>
           </div>
