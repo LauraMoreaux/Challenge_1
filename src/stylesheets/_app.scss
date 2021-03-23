@@ -73,7 +73,7 @@ body {
 
   .inputBox__form__box {
     border: 1px solid $bordersColor;
-
+    padding-left: 10px;
     height: 38px;
     box-sizing: border-box;
     border-radius: 12px;
@@ -121,11 +121,11 @@ body {
     right: 150px;
   }
   @media (min-width: $desktop) {
-    right: 300px;
+    left: 800px;
   }
-  // @media (min-width: $desktop-sup) {
-  //   right: 500px;
-  // }
+  @media (min-width: $desktop-sup) {
+    left: 1200px;
+  }
 }
 
 .box__delete__btn {
@@ -146,11 +146,11 @@ body {
       right: 220px;
     }
     @media (min-width: $desktop) {
-      right: 300px;
+      left: 800px;
     }
-    // @media (min-width: $desktop-sup) {
-    //   right: 500px;
-    // }
+    @media (min-width: $desktop-sup) {
+      left: 1200px;
+    }
   }
 
   .delete__task {
