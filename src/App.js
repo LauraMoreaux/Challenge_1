@@ -64,7 +64,7 @@ function App() {
     const newTask = {id: data.length + 1,
                     name: newData,
                     checked: false};
-    updateList(newTask)
+    updateList(newTask);
   }
 
   // To erase one 
