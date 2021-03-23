@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import '../src/stylesheets/_index.scss';
-import ListTasks from './components/ListTasks';
+import StateFilters from './components/StateFilters';
+import TasksList from './components/TasksList';
 import DeleteTasks from './components/DeleteButton';
 import InputFilters from './components/InputFilters';
-import StateFilters from './components/StateFilters';
+
+
 
 
 const FILTER_MAP = {
@@ -32,7 +34,7 @@ function App() {
 
   const taskList = data.filter(FILTER_MAP[filter])
     .map(task => (
-      <ListTasks
+      <TasksList
         id={task.id}
         name={task.name}
         completed={task.checked}
@@ -110,7 +112,7 @@ function App() {
             </nav>
             <InputFilters addNewTask={addNewTask}/>
             <main>
-                <ListTasks handleStatus={handleStatus} handleDeleteIcon={handleDeleteIcon} tasks={taskList}/>
+                <TasksList handleStatus={handleStatus} handleDeleteIcon={handleDeleteIcon} tasks={taskList}/>
                 <DeleteTasks resetAll={resetAll}/>
             </main>
           </div>

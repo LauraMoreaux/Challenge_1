@@ -2,8 +2,7 @@ import React from 'react';
 import '../stylesheets/_index.scss';
 
 
-
-function TaskCard (props) {
+function TasksCard (props) {
     
     const handleCheckbox = (ev) => {
         console.log("Este checkbox se ha pulsado", ev.target);
@@ -24,4 +23,4 @@ function TaskCard (props) {
 
 }
 
-export default TaskCard;
+export default TasksCard;
