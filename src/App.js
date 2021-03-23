@@ -63,8 +63,8 @@ function App() {
 
   // To erase one 
   const handleDeleteIcon = (id) => {
-    const reducedArray = [...data]
-    reducedArray.splice(id - 1, 1)
+    console.log('Recibo este id', id);
+    const reducedArray = data.filter(task => task.id !== parseInt(id));
     updateTasks(reducedArray);
   }
 

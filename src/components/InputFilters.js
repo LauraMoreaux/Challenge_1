@@ -5,8 +5,9 @@ function InputFilters (props) {
 
     function handleInputValue (ev) {
         ev.preventDefault();
-        const inputValue = document.querySelector(".js-input").value;
+        let inputValue = document.querySelector(".js-input").value;
         props.addNewTask(inputValue);
+        inputValue = "";
     } 
 
     return (

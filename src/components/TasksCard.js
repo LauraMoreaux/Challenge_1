@@ -11,6 +11,7 @@ function TasksCard (props) {
 
     const handleDeleteTask = (ev) => {
         props.handleDeleteIcon(ev.target.id);  
+        console.log('He clickado este id', ev.target.id);
     }
 
     return (    

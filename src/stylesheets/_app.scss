@@ -68,6 +68,11 @@ body {
 .inputBox__form {
   display: flex;
   justify-content: space-evenly;
+  padding: 10px 0px 10px 0px;
+
+  @media (min-width: $desktop) {
+    padding: 30px 0px 30px 0px;
+  }
 
   .inputBox__form__box {
     border: 1px solid $bordersColor;
@@ -92,7 +97,7 @@ body {
     @media (min-width: $desktop) {
       min-width: 100px;
       max-width: 150px;
-      font-size: 18px;
+      font-size: 23px;
     }
   }
 }
@@ -103,14 +108,17 @@ body {
   text-align: left;
 
   @media (min-width: $desktop) {
-    font-size: 20px;
+    font-size: 23px;
   }
 
   .taskList__li {
     padding: 15px;
+    display: grid;
+    grid-template-columns: 5% 80% 15%;
     
     .checkbox {
-      margin-right: 5px;
+      height: 100%;
+      width: 100%;
     }
 
   }
@@ -118,16 +126,16 @@ body {
 
 .task__fa {
   color: $bordersColor;
-  position: absolute;
-  right: 35px;
+  // position: absolute;
+  // right: 35px;
   padding: 0px;
-  @media (min-width: $tablet) {
-    right: 150px;
-  }
-  @media (min-width: $desktop) {
-    position: absolute;
-    left: 65%;
-  }
+  // @media (min-width: $tablet) {
+  //   right: 150px;
+  // }
+  // @media (min-width: $desktop) {
+  //   position: absolute;
+  //   left: 65%;
+  // }
 }
 
 .box__delete__btn {
