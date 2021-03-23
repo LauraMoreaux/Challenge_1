@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../src/stylesheets/_index.scss';
 import StateFilters from './components/StateFilters';
 import TasksList from './components/TasksList';
@@ -7,7 +7,7 @@ import InputFilters from './components/InputFilters';
 
 
 
-
+//Comparative to filter states
 const FILTER_MAP = {
   All: () => true,
   Active: data => !data.checked,
@@ -16,18 +16,24 @@ const FILTER_MAP = {
 
 const FILTER_NAMES = Object.keys(FILTER_MAP);
 
+
+// APP FUNCTION
+
 function App() {
 
-  //States
-  const [data, updateTasks] = useState([
-    { id: 1, name: "Lavar el coche", checked: true },
-    { id: 2, name: "Hacer la compra", checked: false },
-    { id: 3, name: "Tercera Tarea", checked: true },
-    { id: 4, name: "Y otra más", checked: false },
-  ])
+  // To get from LocalStorage
+  const storedValues = JSON.parse(localStorage.getItem('myValueInLocalStorage'));
 
+
+  //States
+  const [data, updateTasks] = useState(storedValues);
   const [filter, setFilter] = useState('All');
 
+
+  // Use Effect to set to LocalStorage
+  useEffect(() => {
+    localStorage.setItem('myValueInLocalStorage', JSON.stringify(data));
+  }, [data]);
 
 
   // To filter tasks
@@ -97,6 +103,8 @@ function App() {
     console.log('He clickado el botón');
     updateTasks([]);
   }
+
+
 
 
   // Render

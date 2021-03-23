@@ -115,6 +115,7 @@ body {
     padding: 15px;
     display: grid;
     grid-template-columns: 5% 80% 15%;
+    grid-column-gap: 5px;
     
     .checkbox {
       height: 100%;
@@ -126,16 +127,7 @@ body {
 
 .task__fa {
   color: $bordersColor;
-  // position: absolute;
-  // right: 35px;
   padding: 0px;
-  // @media (min-width: $tablet) {
-  //   right: 150px;
-  // }
-  // @media (min-width: $desktop) {
-  //   position: absolute;
-  //   left: 65%;
-  // }
 }
 
 .box__delete__btn {
